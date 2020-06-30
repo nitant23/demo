@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "e94d56f0-0490-4caf-9624-9f5a7c395d4b",
+		"name": "atlassian",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Contact",
+			"item": [
+				{
+					"name": "Create Contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"firstName\": \"\",\r\n    \"lastName\": \"dgsg\",\r\n    \"email\": \"test@test.com\",\r\n    \"address\": {\r\n        \"address1\": \"aaa 1\",\r\n        \"address2\": \"aaa 2\",\r\n        \"city\": \"San Jose\",\r\n        \"state\": \"California\",\r\n        \"country\": \"USA\",\r\n        \"postalCode\": \"12345\"\r\n    },\r\n    \"newContact\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/contact/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contact",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Contact",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n     \"id\": 1,\r\n    \"firstName\": \"Updated\",\r\n    \"lastName\": \"updated\",\r\n    \"email\": \"testupdate@test.com\",\r\n    \"address\": {\r\n        \"address1\": \"a 1\",\r\n        \"address2\": \"a 2\",\r\n        \"city\": \"San Jose\",\r\n        \"state\": \"California\",\r\n        \"country\": \"USA\",\r\n        \"postalCode\": \"12345\"\r\n    },\r\n    \"newContact\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/contact/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contact",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Contact by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/contact/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contact",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Create Account without Contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"companyName\": \"Atlassian\",\r\n    \"newAccount\": true,\r\n    \"address\": {\r\n        \"address1\": \"aaa 1\",\r\n        \"address2\": \"aaa 2\",\r\n        \"city\": \"San Jose\",\r\n        \"state\": \"California\",\r\n        \"country\": \"USA\",\r\n        \"postalCode\": \"12345\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/account/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"account",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Account with a single Contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"companyName\": \"Atlassian\",\r\n    \"newAccount\": \"true\",\r\n    \"address\": {\r\n        \"address1\": \"Park Ave\",\r\n        \"address2\": \"345\",\r\n        \"city\": \"San Jose\",\r\n        \"state\": \"California\",\r\n        \"country\": \"USA\",\r\n        \"postalCode\": \"95110\"\r\n    },\r\n    \"contacts\":[{\r\n        \"firstName\": \"Adobe second name\",\r\n        \"lastName\": \"dgsg\",\r\n        \"email\": \"test@adobe.com\",\r\n        \"address\": {\r\n            \"address1\": \"aaa 1\",\r\n            \"address2\": \"aaa 2\",\r\n            \"city\": \"San Jose\",\r\n            \"state\": \"California\",\r\n            \"country\": \"USA\",\r\n            \"postalCode\": \"12345\"\r\n        }\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/account/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"account",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Account with a multiple Contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"companyName\": \"Atlassian\",\r\n    \"newAccount\": \"true\",\r\n    \"address\": {\r\n        \"address1\": \"Park Ave\",\r\n        \"address2\": \"345\",\r\n        \"city\": \"San Jose\",\r\n        \"state\": \"California\",\r\n        \"country\": \"USA\",\r\n        \"postalCode\": \"95110\"\r\n    },\r\n    \"contacts\":[{\r\n        \"firstName\": \"contact one\",\r\n        \"lastName\": \"dgsg\",\r\n        \"email\": \"one@atlassian.com\",\r\n        \"address\": {\r\n            \"address1\": \"aaa 1\",\r\n            \"address2\": \"aaa 2\",\r\n            \"city\": \"San Francisco\",\r\n            \"state\": \"California\",\r\n            \"country\": \"USA\",\r\n            \"postalCode\": \"12345\"\r\n        }\r\n    },\r\n    {\r\n        \"firstName\": \"contact two\",\r\n        \"lastName\": \"dgsg\",\r\n        \"email\": \"two@atlassian.com\",\r\n        \"address\": {\r\n            \"address1\": \"aaa 1\",\r\n            \"address2\": \"aaa 2\",\r\n            \"city\": \"San Jose\",\r\n            \"state\": \"California\",\r\n            \"country\": \"USA\",\r\n            \"postalCode\": \"95000\"\r\n        }\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/account/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"account",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"id\": 8,\r\n    \"companyName\": \"Adobe\",\r\n    \"newAccount\": \"false\",\r\n    \"address\": {\r\n        \"address1\": \"Account updated\",\r\n        \"address2\": \"345\",\r\n        \"city\": \"San Jose\",\r\n        \"state\": \"California\",\r\n        \"country\": \"USA\",\r\n        \"postalCode\": \"95110\"\r\n    },\r\n    \"contacts\":[{\r\n        \"firstName\": \"Adobe second name\",\r\n        \"lastName\": \"dgsg\",\r\n        \"email\": \"test@adobe.com\",\r\n        \"address\": {\r\n            \"address1\": \"aaa 1\",\r\n            \"address2\": \"aaa 2\",\r\n            \"city\": \"San Jose\",\r\n            \"state\": \"California\",\r\n            \"country\": \"USA\",\r\n            \"postalCode\": \"12345\"\r\n        }\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/account/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"account",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/account/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"account",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account with associated Contacts by Account Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/account/1/contacts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"account",
+								"1",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

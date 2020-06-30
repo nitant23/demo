@@ -1,0 +1,20 @@
+version: '3'
+services:
+  mpac:
+    build: .
+    container_name: spring-boot-api
+    image: nitantpatel/mpac
+    ports:
+      - "8080:8080"
+    networks:
+      - mpac
+  db_host:
+    container_name: db
+    image: mysql
+    environment:
+      - "MYSQL_DATABASE=atlassian"
+      - "MYSQL_ROOT_PASSWORD=root"
+    networks:
+      - mpac
+networks:
+    mpac:
